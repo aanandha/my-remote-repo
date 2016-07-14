@@ -11,16 +11,17 @@ import java.util.Scanner;
 
 import com.flp.ems.util.Validate;
 
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 
 
 public class UserInteraction {
 private	static int employeeid=71900;
-private	int deptid,Projectid,Roleid,option,i;
-private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,a,Projectname;
+private	int deptid,Projectid,Roleid,option,i,a;
+private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	private String DOB,DOJ;
 	EmployeeServiceImpl esi=new  EmployeeServiceImpl();
 	Project p=new Project();
@@ -235,19 +236,66 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,a,Projectname;
 	}
 	public void SearchEmployee()
 	{
-		System.out.println("do you want to search an employee by kinid,emailid,name...");
-		System.out.println("enter option");
-		a=in.nextLine();
+		
+	System.out.println("1.search using Kinid");
+		System.out.println("2.search using name");
+		System.out.println("3.search using Mailid");
+		System.out.println("4.search using Kinid and name");
+		System.out.println("5.search using Kinid and Mailid");
+		System.out.println("6.search using name and Mailid");
+		System.out.println("7.search using Kinid,name and Mailid");
+		
+		
+		a=in.nextInt();
 		switch(a)
 		{
-		
-			
-			
-			
-			
+		case 1:
+			System.out.println("enter kinid");
+		 Kinid=in.next();
+		 esi.SearchEmployee();
+		 
+			break;
+		case 2:
+			System.out.println("enter name");
+			Name=in.next();
+			 esi.SearchEmployee();
+			break;
+		case 3:
+			System.out.println("enter Mailid");
+			EMailid=in.next();
+			 esi.SearchEmployee();
+			break;
+		case 4:
+			System.out.println("enter Kinid and name");
+			 Kinid=in.next();
+			 Name=in.next();
+			 esi.SearchEmployee();
+			break;
+		case 5:
+			System.out.println("enter Kinid and Mailid");
+			Kinid=in.next();
+			EMailid=in.next();
+			 esi.SearchEmployee();
+			break;
+		case 6:
+			System.out.println("enter name and Mailid");
+			EMailid=in.next();
+			Name=in.next();
+			 esi.SearchEmployee();
+			break;
+		case 7:
+			System.out.println("enter Kinid,name and Mailid ");
+			Kinid=in.next();
+			EMailid=in.next();
+			Name=in.next();
+			 esi.SearchEmployee();
+			break;
 			
 			
 		}
+		
+		
+		
 	}
 	public void getAllEmployee()
 	{

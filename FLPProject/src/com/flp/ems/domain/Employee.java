@@ -131,6 +131,9 @@ public class Employee {
 		Roleid=roleid;
 	
 	}
+	 public String toString(){ 
+		  return employeeid+" "+Name+" "+Kinid+" "+EMailid+" "+PhoneNo+" "+DOB+" "+DOJ+" "+Address+" "+Department+" "+deptid+" "+Projectname+" "+Projectid+" "+Role+" "+Roleid;  
+		 }  
 	public boolean equals(Object obj){
 		if(this == obj)
 		return true;

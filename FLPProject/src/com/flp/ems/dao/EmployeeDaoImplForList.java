@@ -7,14 +7,15 @@ import java.util.List;
 import com.flp.ems.domain.Employee;
 
 public class EmployeeDaoImplForList implements IemployeeDao {
-	List<Employee> list=new ArrayList();
+	public List<Employee> list=new ArrayList();
 	Employee emp=new Employee();
 	
 	public void AddEmployee(Employee emp)
 	{
 		System.out.println("inside dao create");
 		list.add(emp);
-		System.out.println(list.get(0));
+		System.out.println("list of all employees" +list);
+		
 		System.out.println("employee added to list");
 		
 	}
@@ -32,6 +33,8 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 	}
 	public void getAllEmployee()
 	{
+		//System.out.println("list of all employees" +list.iterator().next());
+		
 		 Iterator iterator = list.iterator();
 		 System.out.println("inside dao");
 	        while (iterator.hasNext()) {
