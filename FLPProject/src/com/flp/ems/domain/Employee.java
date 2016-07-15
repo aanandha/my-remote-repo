@@ -135,17 +135,13 @@ public class Employee {
 		  return employeeid+" "+Name+" "+Kinid+" "+EMailid+" "+PhoneNo+" "+DOB+" "+DOJ+" "+Address+" "+Department+" "+deptid+" "+Projectname+" "+Projectid+" "+Role+" "+Roleid;  
 		 }  
 	public boolean equals(Object obj){
-		if(this == obj)
-		return true;
-		if((obj == null) || (obj.getClass() != this.getClass()))
-			return false;
+		if((this==(Employee)obj)&&((Kinid==((Employee)obj).Kinid)||(this.EMailid==((Employee)obj).EMailid)||(employeeid==((Employee)obj).employeeid)))
+		{
+			if((Department==((Employee)obj).getDepartment())&&(this.Projectname==((Employee)obj).getProjectname()))
+				return true;
+		}
+		return false;
+	}
 
-	    Employee other = (Employee) obj;
-	    if(this.Kinid != other.Kinid)      return false;
-	    if(! this.EMailid.equals(other.EMailid)) return false;
-//	    if(! this.lastName.equals(other.lastName))   return false;
-
-	    return true;
-	  }
 	
 }

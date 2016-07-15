@@ -73,7 +73,8 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	        	Projectname="Student Management System";
 	        	Projectid=1001;
 	        	break;
-				
+	        default :
+		        System.out.println("Invalid opiton");
 			}
 			
 		}
@@ -93,6 +94,8 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	        	Projectname="EMS";
 	        	Projectid=2001;
 	        	break;
+	        default :
+		        System.out.println("Invalid opiton");
 				
 			}
 		}
@@ -112,6 +115,8 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	        	Projectname="ERP system";
 	        	Projectid=3001;
 	        	break;
+	        default :
+		        System.out.println("Invalid opiton");
 				
 			}
 		}
@@ -131,6 +136,8 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	        	Projectname="Insurance management System Mainframe Application";
 	        	Projectid=4001;
 	        	break;
+	        default :
+		        System.out.println("Invalid opiton");
 				
 			}
 		}
@@ -186,14 +193,13 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 //		Project p=new Project();
 //		p.setdeptid(getdeptid());
 		
-		boolean F1,F2,F3,F4;
+		boolean F1,F2;
 		F1= Validate.validateDateFormat(DOJ);
 	    F2= Validate.validateDateFormat(DOB);
-        F3= Validate.validateEmailAddress(EMailid);
-        F4=Validate.validatePhoneNumber(PhoneNo);
-         if(F1 && F2 && F3 && F4){
+        
+         if(F1 && F2){
          
-        	 System.out.println(" validation success");
+        	 System.out.println(" Date validation success");
         	 
         
 		HashMap hm=new HashMap();
@@ -213,11 +219,11 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 		hm.put("Roleid", Roleid);
 		employeeid++;
 		esi.AddEmployee(hm);
-		 System.out.println("Employee added");
+		 System.out.println("Employee added to hashmap");
          }
 		 else {
-        	 System.out.println(" validation fails");
-        	 System.out.println("Employee is not added");
+        	 System.out.println(" Date validation fails");
+        	 System.out.println("Employee is not added to hashmap");
          }	
 		
 	}
@@ -230,9 +236,34 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	}
 	public void RemoveEmployee()
 	{
-		System.out.println("Enter employeeid you want to remove:");
-		employeeid=in.nextInt();
-		System.out.println("Conform to Remove employee");
+		System.out.println("Removing an Employee from the system: Select search by one method: ");
+		System.out.println("1. kinid\n2.employeeid\n3.employee summary ");
+		int choice=in.nextInt();
+		
+		switch(choice)
+		{
+		case 1:
+			System.out.println("Enter the Kinid: ");
+			employeeid=Integer.parseInt(in.next());
+			esi.RemoveEmployee(employeeid);
+			break;
+		case 2:
+			System.out.println("Enter the employee id: ");
+			employeeid=in.nextInt();
+			esi.RemoveEmployee(employeeid);
+			break;
+		case 3:
+			this.getAllEmployee();
+			System.out.println("Enter the employee id");
+			employeeid=in.nextInt();
+			esi.RemoveEmployee(employeeid);
+			break;
+		default:
+			System.out.println("Incorrect choice! try again");
+			this.RemoveEmployee();
+			break;
+		}
+
 	}
 	public void SearchEmployee()
 	{
@@ -252,44 +283,45 @@ private	String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 		case 1:
 			System.out.println("enter kinid");
 		 Kinid=in.next();
-		 esi.SearchEmployee();
+		 esi.SearchEmployee(Kinid,"$","$");
 		 
 			break;
 		case 2:
 			System.out.println("enter name");
 			Name=in.next();
-			 esi.SearchEmployee();
+//			 esi.SearchEmployee(("$",Name,"$");
 			break;
 		case 3:
 			System.out.println("enter Mailid");
 			EMailid=in.next();
-			 esi.SearchEmployee();
+//			 esi.SearchEmployee(("$","$",EMailid);
 			break;
 		case 4:
 			System.out.println("enter Kinid and name");
 			 Kinid=in.next();
 			 Name=in.next();
-			 esi.SearchEmployee();
+			 esi.SearchEmployee(Kinid,Name,"$");
 			break;
 		case 5:
 			System.out.println("enter Kinid and Mailid");
 			Kinid=in.next();
 			EMailid=in.next();
-			 esi.SearchEmployee();
+			 esi.SearchEmployee(Kinid,"$",EMailid);
 			break;
 		case 6:
 			System.out.println("enter name and Mailid");
 			EMailid=in.next();
 			Name=in.next();
-			 esi.SearchEmployee();
+			 esi.SearchEmployee("$",Name,EMailid);
 			break;
 		case 7:
 			System.out.println("enter Kinid,name and Mailid ");
 			Kinid=in.next();
 			EMailid=in.next();
 			Name=in.next();
-			 esi.SearchEmployee();
+			 esi.SearchEmployee(Kinid,Name,EMailid);
 			break;
+			
 			
 			
 		}

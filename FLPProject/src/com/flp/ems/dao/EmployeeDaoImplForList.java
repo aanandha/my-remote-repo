@@ -19,33 +19,36 @@ public class EmployeeDaoImplForList implements IemployeeDao {
 		System.out.println("employee added to list");
 		
 	}
-	public void ModifyEmployee()
+	public void ModifyEmployee(String Kinid)
 	{
 		
 	}
-	public void SearchEmployee()
+	public void SearchEmployee(String Kinid)
 	{
-		
+	Iterator itr = list.iterator();
+		System.out.println("Employeeid\tKinid\tName\tRole\tDepartment\tProject");
+		while(itr.hasNext()){
+			Employee emp=(Employee) itr.next();
+			if(emp.getKinid().equals(Kinid)||emp.getEMailid().equals(Kinid)||emp.getName().equals(Kinid)){
+
+				System.out.println(emp);
+				System.out.println("Employee Successfully Searched");
+				return;
+			}
+		}
+		System.out.println("Employee not available");
+	
 	}
-	public void RemoveEmployee()
+	public void RemoveEmployee(int employeeid)
 	{
 		
 	}
 	public void getAllEmployee()
 	{
-		//System.out.println("list of all employees" +list.iterator().next());
-		
-		 Iterator iterator = list.iterator();
-		 System.out.println("inside dao");
-	        while (iterator.hasNext()) {
-	        	System.out.println("inside dao while");
-	        	
-	            Employee emp=(Employee) iterator.next();
-	            System.out.print("KINID \t\t" +emp.getKinid());
-	            System.out.print("EMailid \t\t" +emp.getEMailid());
-	            System.out.print("Name \t\t" +emp.getName());
-	            System.out.print("Role \t\t" +emp.getRole());
-	            System.out.print("Department \t\t" +emp.getDepartment());
+  Iterator	itr = list.iterator();
+		System.out.println("Employeeid\t\tKinid\t\tName\t\tRole\t\tDepartment\t\tProject");
+		while(itr.hasNext()){
+			System.out.println(itr.next());
 	            
 	            
 	        } 

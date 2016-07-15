@@ -45,12 +45,12 @@ public class Validate {
     		        
     		        return false;
     		    }
-    		    public boolean validatename(String Name){
-    		        String pattern= "^[a-zA-Z0-9]*$";
+    		    public static boolean validatename(String Name){
+    		        String pattern= "";
     		            if(Name.matches(pattern)){
-    		                return true;
+    		                return false;
     		            }
-    		            return false;   
+    		            return true;   
     		    }
     		
 }
