@@ -3,6 +3,7 @@ import java.util.HashMap;
 
 
 import com.flp.ems.dao.EmployeeDaoImplForList;
+import com.flp.ems.dao.IemployeeDao;
 import  com.flp.ems.domain.Employee;
 import com.flp.ems.util.Validate;
 
@@ -12,7 +13,7 @@ import com.flp.ems.util.Validate;
 
 public class EmployeeServiceImpl implements IEmployeeService{
 	 Employee emp=new Employee();
-	 EmployeeDaoImplForList edi=new EmployeeDaoImplForList ();
+	 IemployeeDao edi=new EmployeeDaoImplForList ();
 	 public void AddEmployee(HashMap hm)
 	 {
 		
@@ -38,7 +39,7 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	        if(F3 && F4 && F5)
 	        {
 	        	System.out.println("EMailid,PhoneNo,Name validation success\n Employee added to list");
-		 edi.AddEmployee(emp);
+	        	edi.AddEmployee(emp);
 	        }
 	        else
 	        {

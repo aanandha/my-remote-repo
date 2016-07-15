@@ -1,10 +1,15 @@
 package com.flp.ems.domain;
 
 public class Employee {
-	private static int employeeid=71900;
+	private static int count=5000;
+	private  int employeeid;
 	private int deptid,Roleid,Projectid;
 	private String Name,Address,EMailid,Kinid,Department,Role,PhoneNo,Projectname;
 	private String DOB,DOJ;
+	public Employee()
+	{
+		employeeid=count++;
+	}
 	public int getemployeeid()
 	{
 		return employeeid;
@@ -132,7 +137,7 @@ public class Employee {
 	
 	}
 	 public String toString(){ 
-		  return employeeid+" "+Name+" "+Kinid+" "+EMailid+" "+PhoneNo+" "+DOB+" "+DOJ+" "+Address+" "+Department+" "+deptid+" "+Projectname+" "+Projectid+" "+Role+" "+Roleid;  
+		  return employeeid+" "+Name+" "+Kinid+" "+EMailid+" "+PhoneNo+" "+Address+" "+Department+" "+Projectname+" "+Role;  
 		 }  
 	public boolean equals(Object obj){
 		if((this==(Employee)obj)&&((Kinid==((Employee)obj).Kinid)||(this.EMailid==((Employee)obj).EMailid)||(employeeid==((Employee)obj).employeeid)))
@@ -141,6 +146,11 @@ public class Employee {
 				return true;
 		}
 		return false;
+	}
+	public int hashCode()
+	{
+		
+		return employeeid*Integer.parseInt(Kinid);
 	}
 
 	
