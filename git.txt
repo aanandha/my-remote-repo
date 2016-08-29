@@ -1,4 +1,0 @@
-git add .
-git commit -m "initial commit"
-git log
-git push origin master
